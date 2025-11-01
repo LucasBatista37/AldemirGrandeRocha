@@ -5,7 +5,7 @@ export default function HeroSection() {
   return (
     <section
       id="home"
-      className="relative flex items-center justify-center min-h-[90vh] bg-[url('/images/drywall-banner.jpg')] bg-cover bg-center"
+      className="relative -mt-px flex items-center justify-center min-h-[90vh] bg-[url('/images/drywall-banner.jpg')] bg-cover bg-center"
     >
       <div className="absolute inset-0 bg-[#1C1C1C]/70 backdrop-blur-[1px]" />
 

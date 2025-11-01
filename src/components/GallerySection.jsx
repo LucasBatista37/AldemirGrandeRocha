@@ -11,27 +11,27 @@ export default function GallerySection() {
   const projects = [
     {
       image: "/images/gallery/imagem1.jpeg",
-      title: "Sala Comercial — Santo André/SP",
+      title: "",
     },
     {
       image: "/images/gallery/imagem3.jpeg",
-      title: "Apartamento Residencial — São Vicente/SP",
+      title: "",
     },
     {
       image: "/images/gallery/imagem4.jpeg",
-      title: "Escritório Corporativo — Campinas/SP",
+      title: "",
     },
     {
       image: "/images/gallery/imagem5.jpeg",
-      title: "Loja Reformada — São Paulo/SP",
+      title: "",
     },
     {
       image: "/images/gallery/imagem6.jpeg",
-      title: "Forro e Iluminação — Praia Grande/SP",
+      title: "",
     },
     {
       image: "/images/gallery/imagem9.jpeg",
-      title: "Revestimento Decorativo — Guarujá/SP",
+      title: "",
     },
   ];
 
@@ -39,7 +39,6 @@ export default function GallerySection() {
     autoSlideRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % projects.length);
     }, 4000);
-
     return () => clearInterval(autoSlideRef.current);
   }, [projects.length]);
 
@@ -61,7 +60,7 @@ export default function GallerySection() {
           viewport={{ once: true }}
           className="text-3xl md:text-4xl font-bold mb-6 text-[#1C1C1C]"
         >
-          Nosso Portfólio
+          Serviços Realizados
         </motion.h2>
 
         <motion.p
@@ -81,9 +80,9 @@ export default function GallerySection() {
               key={index}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
+              transition={{ delay: index * 0.05, duration: 0.5 }}
               viewport={{ once: true }}
-              className="relative group overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition"
+              className="relative group overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition cursor-pointer"
             >
               <img
                 src={project.image}
@@ -111,7 +110,7 @@ export default function GallerySection() {
                   alt={project.title}
                   className="w-full h-72 object-cover"
                 />
-                <div className="absolute inset-0 bg-[#E67E22]/70 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                <div className="absolute inset-0 bg-[#E67E22]/80 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
                   <p className="text-white text-lg font-medium px-4 text-center">
                     {project.title}
                   </p>
@@ -132,24 +131,27 @@ export default function GallerySection() {
           >
             <ChevronRight size={20} />
           </button>
+        </div>
 
-          <div className="flex justify-center mt-4 gap-2">
-            {projects.map((_, index) => (
-              <span
-                key={index}
-                className={`w-2 h-2 rounded-full transition ${
-                  currentIndex === index ? "bg-[#E67E22]" : "bg-gray-300"
-                }`}
-              ></span>
-            ))}
-          </div>
+        <div className="flex justify-center mt-8 gap-2 sm:hidden">
+          {projects.map((_, index) => (
+            <span
+              key={index}
+              className={`w-2.5 h-2.5 rounded-full transition ${
+                currentIndex === index ? "bg-[#E67E22]" : "bg-gray-300"
+              }`}
+            ></span>
+          ))}
         </div>
 
         <div className="mt-12">
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
-            onClick={() => navigate("/galeria")}
+            onClick={() => {
+              navigate("/galeria");
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            }}
             className="bg-[#E67E22] hover:bg-[#cf6d1e] text-white px-8 py-3 rounded-full font-semibold shadow-lg transition"
           >
             Ver mais projetos

@@ -7,7 +7,7 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12 mb-12">
           <div>
             <h3 className="text-2xl font-bold text-white mb-4">
-              Drywall & Construções
+              Gesso Grande Rocha
             </h3>
             <p className="text-[#AAAAAA] leading-relaxed mb-6">
               Especialistas em drywall, forros e reformas residenciais e
@@ -63,7 +63,7 @@ export default function Footer() {
                   href="mailto:contato@drywallconstrucoes.com"
                   className="hover:text-white transition"
                 >
-                  contato@drywallconstrucoes.com
+                  gessogranderocha@gmail.com
                 </a>
               </li>
             </ul>
@@ -91,7 +91,7 @@ export default function Footer() {
         <div className="border-t border-[#333333] my-8"></div>
 
         <div className="flex flex-col md:flex-row items-center justify-between text-sm text-[#888888]">
-          <p>© 2025 Drywall & Construções — Todos os direitos reservados</p>
+          <p>© 2025 Gesso Grande Rocha — Todos os direitos reservados</p>
           <div className="flex gap-4 mt-4 md:mt-0">
             <a href="#about" className="hover:text-[#E67E22] transition">
               Sobre

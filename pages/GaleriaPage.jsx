@@ -11,39 +11,75 @@ export default function GaleriaPage() {
   const projects = [
     {
       image: "/images/gallery/imagem1.jpeg",
-      title: "Sala Comercial — Santo André/SP",
+      title: "",
     },
     {
       image: "/images/gallery/imagem2.jpeg",
-      title: "Ambiente Corporativo — São Paulo/SP",
+      title: "",
     },
     {
       image: "/images/gallery/imagem3.jpeg",
-      title: "Apartamento Residencial — São Vicente/SP",
+      title: "",
     },
     {
       image: "/images/gallery/imagem4.jpeg",
-      title: "Escritório Corporativo — Campinas/SP",
+      title: "",
     },
     {
       image: "/images/gallery/imagem5.jpeg",
-      title: "Loja Reformada — São Paulo/SP",
+      title: "",
     },
     {
       image: "/images/gallery/imagem6.jpeg",
-      title: "Forro e Iluminação — Praia Grande/SP",
+      title: "",
     },
     {
       image: "/images/gallery/imagem7.jpeg",
-      title: "Residência Moderna — Santos/SP",
+      title: "",
     },
     {
       image: "/images/gallery/imagem8.jpeg",
-      title: "Área Gourmet — Cubatão/SP",
+      title: "",
     },
     {
       image: "/images/gallery/imagem9.jpeg",
-      title: "Revestimento Decorativo — Guarujá/SP",
+      title: "",
+    },
+    {
+      image: "/images/gallery/imagem10.jpeg",
+      title: "",
+    },
+    {
+      image: "/images/gallery/imagem11.jpeg",
+      title: "",
+    },
+    {
+      image: "/images/gallery/imagem12.jpeg",
+      title: "",
+    },
+    {
+      image: "/images/gallery/imagem13.jpeg",
+      title: "",
+    },
+    {
+      image: "/images/gallery/imagem14.jpeg",
+      title: "",
+    },
+    {
+      image: "/images/gallery/imagem15.jpeg",
+      title: "",
+    },
+    {
+      image: "/images/gallery/imagem16.jpeg",
+      title: "",
+    },
+    {
+      image: "/images/gallery/imagem17.jpeg",
+      title: "",
+    },
+    {
+      image: "/images/gallery/imagem18.jpeg",
+      title: "",
     },
   ];
 
@@ -109,11 +145,12 @@ export default function GaleriaPage() {
         <AnimatePresence>
           {selectedImage && (
             <motion.div
-              className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-6"
+              className="fixed inset-0 bg-black flex items-center justify-center z-50"
               initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
+              animate={{ opacity: 2 }}
               exit={{ opacity: 0 }}
             >
+              {/* Botão Fechar */}
               <button
                 className="absolute top-6 right-6 text-white hover:text-[#E67E22] transition"
                 onClick={() => setSelectedImage(null)}
@@ -121,19 +158,31 @@ export default function GaleriaPage() {
                 <X size={32} />
               </button>
 
-              <motion.img
-                key={selectedImage.image}
-                src={selectedImage.image}
-                alt={selectedImage.title}
-                className="max-h-[90vh] max-w-[90vw] rounded-2xl object-contain shadow-2xl"
-                initial={{ scale: 0.9, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
+              <motion.div
+                className="w-full h-full flex items-center justify-center bg-black"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3 }}
-              />
+              >
+                <img
+                  src={selectedImage.image}
+                  alt={selectedImage.title}
+                  className="max-w-full max-h-full object-contain"
+                />
+              </motion.div>
 
-              <p className="absolute bottom-10 text-white/90 text-lg font-medium text-center px-4">
-                {selectedImage.title}
-              </p>
+              {selectedImage.title && (
+                <p className="absolute bottom-10 text-white/90 text-lg font-medium text-center px-4">
+                  {selectedImage.title}
+                </p>
+              )}
+
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute bottom-6 right-6 flex items-center gap-2 bg-[#E67E22] hover:bg-[#cf6d1e] text-white px-4 py-2 rounded-full font-semibold shadow-lg transition"
+              >
+                ⬅️ Voltar
+              </button>
             </motion.div>
           )}
         </AnimatePresence>

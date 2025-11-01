@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Layout, Layers, Ruler, Home, Building2 } from "lucide-react";
+import { Layout, Layers, Ruler, Home, Building2, Package } from "lucide-react";
 
 export default function ServicesSection() {
   const services = [
@@ -14,6 +14,12 @@ export default function ServicesSection() {
       title: "Forros e Sancas",
       description:
         "Soluções modernas para iluminação e acabamento. Ideal para valorizar salas, quartos e escritórios.",
+    },
+    {
+      icon: <Package size={32} />,
+      title: "Armários Sob Medida",
+      description:
+        "Projetos planejados de armários, closets e nichos em MDF/MDP, com otimização de espaço e acabamento de alto padrão.",
     },
     {
       icon: <Ruler size={32} />,
@@ -58,14 +64,15 @@ export default function ServicesSection() {
           viewport={{ once: true }}
           className="text-[#555555] max-w-2xl mx-auto mb-12 leading-relaxed"
         >
-          Oferecemos soluções completas em drywall, forros e reformas, unindo
-          agilidade, qualidade e acabamento impecável em cada projeto.
+          Oferecemos soluções completas em armários sob medida, drywall, forros
+          e reformas, unindo agilidade, qualidade e acabamento impecável em cada
+          projeto.
         </motion.p>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {services.map((service, index) => (
             <motion.div
-              key={index}
+              key={service.title}
               initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1, duration: 0.6 }}

@@ -2,12 +2,3 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  scroll-behavior: smooth;
-}
-
-.banner-background {
-  background-image: url('/images/drywall-banner.jpg');
-  background-position: center top;
-  background-attachment: fixed; 
-}

@@ -33,7 +33,7 @@ export default function TestimonialsSection() {
           className="text-[#555555] max-w-2xl mx-auto mb-12 leading-relaxed"
         >
           Veja as avaliações reais de quem já confiou na{" "}
-          <strong className="text-[#E67E22]">Drywall & Construções</strong>.
+          <strong className="text-[#E67E22]">Gesso Grande Rocha</strong>.
         </motion.p>
 
         <div className="flex justify-center">

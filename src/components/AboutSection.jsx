@@ -102,7 +102,7 @@ export default function AboutSection() {
               },
               { icon: <Users size={24} />, label: "Equipe especializada" },
               { icon: <Hammer size={24} />, label: "Acabamento profissional" },
-              { icon: <MapPin size={24} />, label: "Atendimento em toda SP" },
+              { icon: <MapPin size={24} />, label: "Litoral de SP" },
             ].map(({ icon, label }, i) => (
               <motion.div
                 key={i}

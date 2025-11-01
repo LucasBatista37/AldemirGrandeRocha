@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { PhoneCall, Send } from "lucide-react";
+import emailjs from "@emailjs/browser";
 
 export default function FinalCTASection() {
   const [status, setStatus] = useState("idle");
@@ -17,33 +18,34 @@ export default function FinalCTASection() {
     },
   });
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setStatus("sending");
 
-    const formData = new FormData(e.target);
+    emailjs
+      .sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        e.target,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
 
-    const response = await fetch("https://formspree.io/f/mzzkzoga", {
-      method: "POST",
-      body: formData,
-      headers: { Accept: "application/json" },
-    });
-
-    if (response.ok) {
-      setStatus("success");
-      e.target.reset();
-    } else {
-      setStatus("error");
-    }
+      .then(
+        () => {
+          setStatus("success");
+          e.target.reset();
+        },
+        () => {
+          setStatus("error");
+        }
+      );
   };
-
   return (
     <section
       id="contact"
       className="relative py-24 bg-[#1C1C1C] text-[#FAFAFA] overflow-hidden"
     >
       <div className="max-w-6xl mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
-        {/* LADO ESQUERDO */}
         <motion.div
           variants={fadeIn("left")}
           initial="hidden"
@@ -81,7 +83,6 @@ export default function FinalCTASection() {
           </div>
         </motion.div>
 
-        {/* FORMULÁRIO FUNCIONAL */}
         <motion.form
           onSubmit={handleSubmit}
           variants={fadeIn("right", 0.3)}
@@ -95,7 +96,6 @@ export default function FinalCTASection() {
           </h3>
 
           <div className="grid sm:grid-cols-2 gap-6">
-            {/* Nome */}
             <div className="flex flex-col">
               <label
                 htmlFor="name"
@@ -113,7 +113,6 @@ export default function FinalCTASection() {
               />
             </div>
 
-            {/* Telefone */}
             <div className="flex flex-col">
               <label
                 htmlFor="phone"
@@ -131,7 +130,6 @@ export default function FinalCTASection() {
               />
             </div>
 
-            {/* Email */}
             <div className="flex flex-col sm:col-span-2">
               <label
                 htmlFor="email"
@@ -149,7 +147,6 @@ export default function FinalCTASection() {
               />
             </div>
 
-            {/* Mensagem */}
             <div className="flex flex-col sm:col-span-2">
               <label
                 htmlFor="message"
@@ -168,7 +165,6 @@ export default function FinalCTASection() {
             </div>
           </div>
 
-          {/* Botão e status */}
           <div className="flex justify-center md:justify-start mt-8">
             <button
               type="submit"
@@ -184,7 +180,6 @@ export default function FinalCTASection() {
             </button>
           </div>
 
-          {/* Mensagens de feedback */}
           {status === "success" && (
             <p className="text-green-400 text-sm mt-4 text-center md:text-left">
               ✅ Mensagem enviada com sucesso! Entraremos em contato em breve.
