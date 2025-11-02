@@ -98,7 +98,7 @@ export default function AboutSection() {
             {[
               {
                 icon: <ShieldCheck size={24} />,
-                label: "Materiais certificados",
+                label: "Compromisso com a excelência",
               },
               { icon: <Users size={24} />, label: "Equipe especializada" },
               { icon: <Hammer size={24} />, label: "Acabamento profissional" },
