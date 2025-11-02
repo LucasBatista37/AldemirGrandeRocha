@@ -150,7 +150,6 @@ export default function GaleriaPage() {
               animate={{ opacity: 2 }}
               exit={{ opacity: 0 }}
             >
-              {/* Botão Fechar */}
               <button
                 className="absolute top-6 right-6 text-white hover:text-[#E67E22] transition"
                 onClick={() => setSelectedImage(null)}
