@@ -82,10 +82,9 @@ export default function AboutSection() {
           </p>
 
           <p className="text-[#555555] mb-10 leading-relaxed">
-            Atuamos com materiais certificados e seguimos padrões rigorosos de
-            qualidade para oferecer segurança e durabilidade. Do planejamento à
-            execução, nosso compromisso é entregar um resultado final que supera
-            expectativas.
+            Prezamos pela confiança, pela qualidade e pela entrega responsável
+            em cada etapa do projeto. Do planejamento à execução, buscamos
+            sempre superar as expectativas dos nossos clientes.
           </p>
 
           <motion.div
